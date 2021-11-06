@@ -1,4 +1,4 @@
-# plantilla-visor-react
+# template
 
 Plantilla para un proyecto con React, MUI y storybook
 ---

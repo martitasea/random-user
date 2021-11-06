@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "random-user",
   "version": "0.0.1",
   "description": "",
   "main": "./dist/main.js",
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/martitasea/template.git"
+    "url": "git+https://github.com/martitasea/random-user.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/martitasea/template/issues"
+    "url": "https://github.com/martitasea/random-user/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
