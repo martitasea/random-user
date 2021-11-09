@@ -29,7 +29,10 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 const useStyles = makeStyles( {
   card: {
-    /*height: 392,*/
+    height: 480,
+    width: 376,
+    margin: 16,
+    position: 'relative'
   },
   cardMedia: {
     paddingTop: 250,
@@ -46,13 +49,13 @@ const useStyles = makeStyles( {
     padding: 4,
     margin: 0,
     position: 'absolute',
-    top: 295,
-    left: 0,
-    width: '100vw',
+    top: 300,
+    right: 0,
     display: 'flex',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   timeContent: {
+    width: 100,
     backgroundColor: 'white',
     border: '2px solid black',
     borderRadius: 4,
@@ -64,11 +67,6 @@ const useStyles = makeStyles( {
     left: 0,
     display: 'flex',
     justifyContent: 'center'
-  },
-  cardActions: {
-    /*position: 'relative',
-    top: -30,*/
-    padding: 0
   },
   row: {
     display: 'flex',
@@ -95,7 +93,7 @@ const useStyles = makeStyles( {
   }
 });
 
-const UserCard = ({gender, name, location, email, login, dob, registered, phone, cell, picture, nat}) => {
+const ProfileCard = ({gender, name, location, email, login, dob, registered, phone, cell, picture, nat}) => {
   const classes = useStyles();
 
   const userHour = parseInt(location.timezone.offset.slice(0,2));
@@ -146,7 +144,6 @@ const UserCard = ({gender, name, location, email, login, dob, registered, phone,
           </Box>
         </AccordionDetails>
       </Accordion>
-
       <Accordion elevation={0}>
         <AccordionSummary expandIcon={<AddIcon />}>
           <PhoneIcon className={classes.icon}/>
@@ -175,7 +172,6 @@ const UserCard = ({gender, name, location, email, login, dob, registered, phone,
           </Box>
         </AccordionDetails>
       </Accordion>
-
       <Accordion elevation={0}>
         <AccordionSummary expandIcon={<AddIcon />}>
           <LockOpenIcon className={classes.icon}/>
@@ -208,7 +204,7 @@ const UserCard = ({gender, name, location, email, login, dob, registered, phone,
   </Card>;
 };
 
-UserCard.propTypes = {
+ProfileCard.propTypes = {
   gender: PropTypes.string,
   name: PropTypes.shape({
     title: PropTypes.string,
@@ -256,6 +252,6 @@ UserCard.propTypes = {
   nat: PropTypes.string
 };
 
-UserCard.defaultProps = {};
+ProfileCard.defaultProps = {};
 
-export default UserCard;
+export default ProfileCard;
