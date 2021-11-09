@@ -29,7 +29,7 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 const useStyles = makeStyles( {
   card: {
-    height: 480,
+    height: 'auto',
     width: 376,
     margin: 16,
     position: 'relative'
@@ -77,7 +77,7 @@ const useStyles = makeStyles( {
     paddingBottom: 4,
   },
   iconSecondary: {
-    marginRight: 10,
+    marginRight: 5,
     paddingBottom: 4,
     color: 'grey'
   },
@@ -122,7 +122,7 @@ const ProfileCard = ({gender, name, location, email, login, dob, registered, pho
       </div>
       <div className={classes.timeContent}>
         <AccessAlarmsIcon/>
-        <Typography variant='h5'>{`${hour}:${minutes}`}</Typography>
+        <Typography variant='h5'>{`${hour > 23 ? hour-24 : hour}:${minutes}`}</Typography>
       </div>
       <Accordion elevation={0}>
         <AccordionSummary expandIcon={<AddIcon />} className={classes.accordionSummary}>
@@ -130,16 +130,14 @@ const ProfileCard = ({gender, name, location, email, login, dob, registered, pho
           <Typography>PERFIL</Typography>
         </AccordionSummary>
         <AccordionDetails className={classes.accordionDetails}>
-          <Box display='flex' flexDirection='column'>
-            <Box display='flex'>
-              <Box display='flex' my={1}>
-                <FlagIcon className={classes.iconSecondary}/>
-                <Typography className={classes.typographyData}>{nat}</Typography>
-              </Box>
-              <Box display='flex' my={1}>
-                <CakeIcon className={classes.iconSecondary}/>
-                <Typography className={classes.typographyData}>{`${dob.date.slice(0,10)} (${dob.age} años)`}</Typography>
-              </Box>
+          <Box display='flex' justifyContent='space-between'>
+            <Box display='flex' my={1} mr={9.05}>
+              <FlagIcon className={classes.iconSecondary}/>
+              <Typography className={classes.typographyData}>{nat}</Typography>
+            </Box>
+            <Box display='flex' my={1}>
+              <CakeIcon className={classes.iconSecondary}/>
+              <Typography className={classes.typographyData}>{`${dob.date.slice(0,10)} (${dob.age} años)`}</Typography>
             </Box>
           </Box>
         </AccordionDetails>
@@ -164,7 +162,7 @@ const ProfileCard = ({gender, name, location, email, login, dob, registered, pho
                 <PhoneIcon className={classes.iconSecondary}/>
                 <Typography className={classes.typographyData}>{phone}</Typography>
               </Box>
-              <Box display='flex' my={1}>
+              <Box display='flex' my={1} ml={2}>
                 <PhoneAndroidIcon className={classes.iconSecondary}/>
                 <Typography className={classes.typographyData}>{cell}</Typography>
               </Box>
@@ -184,7 +182,7 @@ const ProfileCard = ({gender, name, location, email, login, dob, registered, pho
               <Typography className={classes.typographyData}>{email}</Typography>
             </Box>
             <Box display='flex' justifyContent='space-between'>
-              <Box display='flex' my={1}>
+              <Box display='flex' my={1} >
                 <AccountBoxIcon className={classes.iconSecondary}/>
                 <Typography className={classes.typographyData}>{login.username}</Typography>
               </Box>
