@@ -1,12 +1,12 @@
 import React from 'react';
-import UserCard from './UserCard';
+import ProfileCard from './ProfileCard';
 
 export default {
-  title: 'Common/UserCard',
-  component: UserCard
+  title: 'Common/ProfileCard',
+  component: ProfileCard
 };
 
-const Template = args => <UserCard {...args}/>;
+const Template = args => <ProfileCard {...args}/>;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -25,7 +25,7 @@ Default.args = {
     state: 'Sao Paulo',
     country: 'Brazil',
     postcode: 7579,
-    coordinates:{
+    coordinates: {
       latitude: '-77.9074',
       longitude: '88.6356',
     },
