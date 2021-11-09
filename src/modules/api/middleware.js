@@ -2,10 +2,12 @@ import apiActionTypes, {
   apiProfilesSuccess
 } from './actions';
 
-const BASE_URL = 'https://randomuser.me/api';
+const BASE_URL = 'https://randomuser.me/api?';
 
 export const ENDPOINTS = {
-  results: `${BASE_URL}?results=8`,
+  results: number => `results=${number}`,
+  gender: gender => `gender=${gender}`,
+  nationality: nat => `nat=${nat}`
 };
 
 const GET_PROFILES = (url) => {
@@ -31,7 +33,11 @@ const apiMiddleware = () => {
   return store => next => action => {
     switch (action.type) {
     case apiActionTypes.API_GET_PROFILES:
-      return GET_PROFILES(ENDPOINTS.results)
+      return GET_PROFILES(
+        BASE_URL+
+        ENDPOINTS.results(8)+'&'+
+        ENDPOINTS.gender('female')+'&'+
+        ENDPOINTS.nationality(['es','fr']))
         .then(apiProfilesSuccess)
         .then(store.dispatch)
         .then(() => next(action));
